@@ -1,0 +1,37 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;        /* stays at bottom */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1976d2; /* Angular Material primary blue */
+  color: white;
+  text-align: center;
+  padding: 12px 0;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer a {
+  color: #bbdefb;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

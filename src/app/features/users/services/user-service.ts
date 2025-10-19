@@ -18,6 +18,13 @@ export class UserService {
     );
   }
 
+  getUserById(id: Number): Observable<User>{
+    return this.http.get<User>(`${this.apiURL}/${id}`).pipe(
+      retry(2),
+      catchError(this.handleError)
+    )
+  }
+
   private handleError(error: HttpErrorResponse){
     let message = 'An unexpected error occured.';
     return throwError(() => new Error(message))

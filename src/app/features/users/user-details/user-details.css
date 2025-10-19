@@ -1,0 +1,63 @@
+.user-card {
+  max-width: 500px;
+  margin: 2rem auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: #fafafa;
+}
+
+.avatar {
+  background: #3f51b5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.section {
+  margin-top: 1rem;
+}
+
+.section h3 {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  color: #3f51b5;
+  margin-bottom: 0.5rem;
+}
+
+.section h3 mat-icon {
+  margin-right: 0.5rem;
+}
+
+a {
+  color: #1976d2;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.header-with-back {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* spreads content */
+  width: 100%;
+  position: relative;
+  padding-right: 8px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-button {
+  margin-left: auto;   /* pushes it all the way to the right */
+  margin-right: 0;     /* ensures no unintended offset */
+  position: absolute;  /* ensures far right alignment */
+  right: 8px;          /* small spacing from the card edge */
+  top: 5%;
+  transform: translateY(-50%); /* perfectly vertically centered */
+}
