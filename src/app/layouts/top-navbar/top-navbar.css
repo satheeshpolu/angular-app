@@ -13,6 +13,13 @@
   flex: 1 1 auto;
 }
 
-.active {
-  color: orange;
+a[mat-button] {
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: border-bottom 0.3s, color 0.3s;
+}
+
+a[mat-button].active {
+  border-bottom: 3px solid rgb(13, 120, 102);
+  font-weight: 600;
 }

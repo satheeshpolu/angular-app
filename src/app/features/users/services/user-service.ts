@@ -14,18 +14,18 @@ export class UserService {
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.apiURL).pipe(
       retry(2),
-      catchError(this.handleError)
+      catchError((error) => this.handleError(error, 'Failed to load user'))
     );
   }
 
-  getUserById(id: Number): Observable<User>{
+  getUserById(id: number): Observable<User>{
     return this.http.get<User>(`${this.apiURL}/${id}`).pipe(
       retry(2),
-      catchError(this.handleError)
+      catchError((error) => this.handleError(error, 'Failed to load user'))
     )
   }
 
-  private handleError(error: HttpErrorResponse){
+  private handleError(error: HttpErrorResponse, customMsg?: string){
     let message = 'An unexpected error occured.';
     return throwError(() => new Error(message))
   }

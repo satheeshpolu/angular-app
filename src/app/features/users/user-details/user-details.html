@@ -1,29 +1,41 @@
 <mat-card class="user-card">
+  @if(user.isLoading()){
+  <mat-card-header>
+    <p>Loading...</p>
+
+  </mat-card-header>
+  } @else if(user.error()){
+  <mat-card-header>
+    <p>Error: {{ user.error()?.message }}</p>
+  </mat-card-header>
+
+  <mat-card-actions>
+    <button (click)="user.reload()" mat-button>Retry</button>
+    <button (click)="goBack()" mat-button>Back</button>
+  </mat-card-actions>
+
+  } @else if(user.value()){
   <mat-card-header>
     <div mat-card-avatar class="avatar">
       <mat-icon>person</mat-icon>
     </div>
-    <mat-card-title>{{ user()?.name }}</mat-card-title>
-    <mat-card-subtitle>@{{ user()?.username }}</mat-card-subtitle>
-      <button
-      mat-icon-button
-      color="primary"
-      aria-label="Go back"
-      class="back-button"
-      (click)="goBack()"
-    >
+    <mat-card-title>{{ user.value()?.name }}</mat-card-title>
+    <mat-card-subtitle>@{{ user.value()?.username }}</mat-card-subtitle>
+    <button mat-icon-button color="primary" aria-label="Go back" class="back-button" (click)="goBack()">
       <mat-icon>arrow_back</mat-icon>
     </button>
   </mat-card-header>
+  
+    <mat-divider></mat-divider>
 
   <mat-card-content>
     <section class="section">
       <h3><mat-icon>contact_mail</mat-icon> Contact</h3>
-      <p><b>Email:</b> {{ user()?.email }}</p>
-      <p><b>Phone:</b> {{ user()?.phone }}</p>
-      <p><b>Website:</b> 
-        <a [href]="'https://' + user()?.website" target="_blank">
-          {{ user()?.website }}
+      <p><b>Email:</b> {{ user.value()?.email }}</p>
+      <p><b>Phone:</b> {{ user.value()?.phone }}</p>
+      <p><b>Website:</b>
+        <a [href]="'https://' + user.value()?.website" target="_blank">
+          {{ user.value()?.website }}
         </a>
       </p>
     </section>
@@ -32,22 +44,23 @@
 
     <section class="section">
       <h3><mat-icon>home</mat-icon> Address</h3>
-      <p>{{ user()?.address?.street }}, {{ user()?.address?.suite }}</p>
-      <p>{{ user()?.address?.city }} - {{ user()?.address?.zipcode }}</p>
-      <small>Geo: {{ user()?.address?.geo?.lat }}, {{ user()?.address?.geo?.lng }}</small>
+      <p>{{ user.value()?.address?.street }}, {{ user.value()?.address?.suite }}</p>
+      <p>{{ user.value()?.address?.city }} - {{ user.value()?.address?.zipcode }}</p>
+      <small>Geo: {{ user.value()?.address?.geo?.lat }}, {{ user.value()?.address?.geo?.lng }}</small>
     </section>
 
     <mat-divider></mat-divider>
 
     <section class="section">
       <h3><mat-icon>business</mat-icon> Company</h3>
-      <p><b>{{ user()?.company?.name }}</b></p>
-      <p><i>"{{ user()?.company?.catchPhrase }}"</i></p>
-      <!-- <p>{{ user()?.company.bs }}</p> -->
+      <p><b>{{ user.value()?.company?.name }}</b></p>
+      <p><i>"{{ user.value()?.company?.catchPhrase }}"</i></p>
+      <!-- <p>{{ user.value()?.company.bs }}</p> -->
     </section>
   </mat-card-content>
   <mat-card-actions>
     <button matButton>LIKE</button>
     <button matButton>SHARE</button>
   </mat-card-actions>
+  }
 </mat-card>

@@ -1,21 +1,12 @@
-<mat-toolbar color="primary" class="navbar">
+<mat-toolbar color="primary" class="navbar" style="gap: 16px;">
   <span class="logo">MyApp</span>
 
   <span class="spacer"></span>
-  <a href="" mat-button>Home</a>
-  <!-- <a href="about" mat-button>About</a> -->
-  <a href="contact" mat-button>Contact</a>
-  <a href="users" mat-button>Users</a>
-  <!-- <a mat-button routerLink="home" routerLinkActive="active" >Home</a>
-  <a mat-button routerLink="about" routerLinkActive="active" >About</a>
-  <a mat-button routerLink="contact" routerLinkActive="active" >Contact</a> -->
-</mat-toolbar>
-<!-- <mat-toolbar color="primary" class="navbar">
-      <span class="logo">MyApp</span>
 
-      <span class="spacer"></span>
-
-      <button mat-icon-button [matMenuTriggerFor]="menu">
+  <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" mat-button>Home</a>
+  <a routerLink="contact" routerLinkActive="active" mat-button>Contact</a>
+  <a routerLink="users" routerLinkActive="active" mat-button>Users</a>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
@@ -32,4 +23,4 @@
           <span>Contact</span>
         </button>
       </mat-menu>
-    </mat-toolbar> -->
+</mat-toolbar>

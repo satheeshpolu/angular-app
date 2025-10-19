@@ -1,7 +1,9 @@
-@if (isLoading()) {
+@if (usersResource.isLoading()) {
 <p>Loading...</p>
-} @else{
-@for (user of usersData(); track user.id) {
+} @else if(usersResource.error()){
+<p>Error...</p>
+} @else {
+@for (user of usersResource.value(); track user.id) {
 <mat-card class="user-card" appearance="outlined">
     <mat-card-header>
         <div mat-card-avatar class="avatar">
@@ -9,14 +11,11 @@
         </div>
         <mat-card-title>{{ user.name }}</mat-card-title>
         <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
-        <button mat-icon-button color="primary" aria-label="Next" class="back-button">
-            <a [routerLink]="['/users', `${user.id}`]"><mat-icon>arrow_forward</mat-icon></a>
+        <button mat-icon-button color="primary" aria-label="Next" class="back-button"
+            [routerLink]="['/users', user.id]">
+            <mat-icon>arrow_forward</mat-icon>
         </button>
     </mat-card-header>
-
 </mat-card>
-
-<!-- <p>{{ user.name }} - {{ user.email }} - <a [routerLink]="['/users', `${user.id}`]">{{ user.id }}</a> -->
-<!-- </p> -->
 }
 }
