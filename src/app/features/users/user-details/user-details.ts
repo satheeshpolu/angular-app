@@ -26,7 +26,9 @@ export class UserDetails {
     loader: async () => {
       const params = await firstValueFrom(this.route.paramMap)
       const id = params.get('id')
+
       if(!id) throw new Error(`Unable to fetch the User details with ${id}`)
+        
       return await firstValueFrom(this.userService.getUserById(Number(id)))
     }
   });
@@ -39,3 +41,4 @@ export class UserDetails {
     this.location.back();
   }
 }
+

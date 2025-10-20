@@ -8,6 +8,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { firstValueFrom } from 'rxjs';
+import { User } from '../model/user.model';
 
 @Component({
   selector: 'app-user-overview',
@@ -24,8 +25,8 @@ import { firstValueFrom } from 'rxjs';
 export class UserOverview {
   private userService = inject(UserService);
 
-  usersResource = resource({
-    loader: () => firstValueFrom(this.userService.getUsers())
+  usersResource = resource<User[], void>({
+    loader: async () => await firstValueFrom(this.userService.getUsers())
   });
 
   reload(): void {
