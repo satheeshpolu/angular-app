@@ -1,4 +1,4 @@
-<mat-card class="comment-card">
+<mat-card class="comment-card" (click)="sendDataToParent.emit(comment)">
    <mat-card-header>
       <!-- <div mat-card-avatar class="avatar">
          <mat-icon>{{ comment?.name }}</mat-icon>

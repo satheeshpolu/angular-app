@@ -5,14 +5,20 @@
 } @else if(commentResource.value()){
 <a [routerLink]="['/posts']" class="back-link">← Back to Posts</a>
 
-@for(comment of commentResource.value(); track comment?.id){
+<h1> Data from children: {{dataFromChild()}} </h1>
+
+<!-- <button mat-button color="primary" (click)="sendDataToParent.emit(comment)">Send Data To Parent</button> -->
 <div class="post-content">
+    @for(comment of commentResource.value(); track comment?.id){
+
     <!-- <h1>{{ comment.name }}</h1>
     <div class="post-meta">commentResource ID: {{ comment.id }} | Post ID: {{
         comment.postId }}
     </div>
     <p class="post-body">{{ comment.body }}</p> -->
-    <app-comment-card [comment]="comment"></app-comment-card>
+    <app-comment-card [comment]="comment" (sendDataToParent)="receiveDataFromChild($event)"></app-comment-card>
     <!-- <app-post-comments [postId]="comment.id"></app-post-comments> -->
+
+    }
 </div>
-} }
+}

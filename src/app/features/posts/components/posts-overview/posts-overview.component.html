@@ -6,13 +6,12 @@
 <p>posts-overview.component works!</p>
 @for(post of postsResource.value(); track post.id){
 <div class="post-overview">
-    <h1>{{ post.title }}</h1>
+    <h1>Title: {{ post.title }}</h1>
+    <p class="post-body">Description: {{ post.body }}</p>
     <div class="post-meta">Post ID: {{ post.id }} | User ID: {{ post.userId }}</div>
-    <p class="post-body">{{ post.body }}</p>
     <a [routerLink]="['posts', post.id, 'comments']" class="read-more">
         Read More →
     </a>
-    <!-- <app-post-comments [postId]="post.id"></app-post-comments> -->
 </div>
 }
 

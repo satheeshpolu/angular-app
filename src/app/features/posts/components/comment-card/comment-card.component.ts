@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Comment } from '../../model/post.model';
 import { MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 // import { MatIcon } from '@angular/material/icon';
@@ -14,4 +14,5 @@ import { MatDivider } from '@angular/material/divider';
 
 export class CommentCardComponent {
   @Input() comment?: Comment;
+  @Output() sendDataToParent = new EventEmitter<Comment>();
 }
