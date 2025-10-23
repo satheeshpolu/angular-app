@@ -1,19 +1,18 @@
-<p>post-comments.component works! {{commentResource.value()}}</p>
-<p>post-details.component works!</p>
 @if(commentResource.isLoading()){
 <h3>Loading...</h3>
 } @else if(commentResource.error()){
 <h3>Error...</h3>
 } @else if(commentResource.value()){
+<a [routerLink]="['/posts']" class="back-link">← Back to Posts</a>
+
 @for(comment of commentResource.value(); track comment?.id){
 <div class="post-content">
-    <h1>{{ comment.id }}</h1>
-    <!-- <div class="post-meta">commentResource ID: {{ commentResource.value()?.id }} | User ID: {{ postResource.value()?.userId }}
+    <!-- <h1>{{ comment.name }}</h1>
+    <div class="post-meta">commentResource ID: {{ comment.id }} | Post ID: {{
+        comment.postId }}
     </div>
-    <p class="post-body">{{ postResource.value()?.body }}</p>
-    <a [routerLink]="['/posts']" class="back-link">← Back to Posts</a>
-    <app-post-comments [postId]="postResource.value()?.id"></app-post-comments> -->
+    <p class="post-body">{{ comment.body }}</p> -->
+    <app-comment-card [comment]="comment"></app-comment-card>
+    <!-- <app-post-comments [postId]="comment.id"></app-post-comments> -->
 </div>
-}
-
-}
+} }

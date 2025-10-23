@@ -5,11 +5,11 @@
 } @else if(postsResource.value()){
 <p>posts-overview.component works!</p>
 @for(post of postsResource.value(); track post.id){
-<div class="post-content">
+<div class="post-overview">
     <h1>{{ post.title }}</h1>
     <div class="post-meta">Post ID: {{ post.id }} | User ID: {{ post.userId }}</div>
     <p class="post-body">{{ post.body }}</p>
-    <a [routerLink]="['/posts', post.id]" class="read-more">
+    <a [routerLink]="['posts', post.id, 'comments']" class="read-more">
         Read More →
     </a>
     <!-- <app-post-comments [postId]="post.id"></app-post-comments> -->

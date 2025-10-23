@@ -1,0 +1,15 @@
+<mat-card class="comment-card">
+   <mat-card-header>
+      <!-- <div mat-card-avatar class="avatar">
+         <mat-icon>{{ comment?.name }}</mat-icon>
+      </div> -->
+      <mat-card-title>{{ comment?.name }}</mat-card-title>
+      <mat-card-subtitle>{{ comment?.email }}</mat-card-subtitle>
+   </mat-card-header>
+
+   <mat-divider></mat-divider>
+
+   <mat-card-content>
+      <p>{{ comment?.body }}</p>
+   </mat-card-content>
+</mat-card>

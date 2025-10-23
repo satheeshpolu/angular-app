@@ -6,7 +6,7 @@ import { PostDetailsComponent } from './components/post-details/post-details.com
 
 const routes: Routes = [
   { path: '', component: PostsOverviewComponent },
-  { path: ':id', component: PostDetailsComponent }
+  { path: 'posts/:id/comments', component: PostDetailsComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,15 @@
+.comment-card {
+  margin: 12px;
+  padding: 12px;
+  background-color: #fafafa;
+  border-radius: 8px;
+}
+
+.avatar {
+  /* background-color: #3f51b5; */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}

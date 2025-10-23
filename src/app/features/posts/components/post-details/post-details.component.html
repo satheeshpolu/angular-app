@@ -1,4 +1,3 @@
-<p>post-details.component works!</p>
 @if(postResource.isLoading()){
 <h3>Loading...</h3>
 } @else if(postResource.error()){
@@ -9,7 +8,7 @@
     <div class="post-meta">postResource ID: {{ postResource.value()?.id }} | User ID: {{ postResource.value()?.userId }}
     </div>
     <p class="post-body">{{ postResource.value()?.body }}</p>
-    <a [routerLink]="['/posts']" class="back-link">← Back to Posts {{postResource.value()?.id}}</a>
-    <!-- <app-post-comments [postId]="postResource.value()?.id"></app-post-comments> -->
+    <!-- <a [routerLink]="['/posts']" class="back-link">← Back to Posts {{postResource.value()?.id}}</a> -->
+    <app-post-comments [postId]="postResource.value()?.id"></app-post-comments>
 </div>
 }

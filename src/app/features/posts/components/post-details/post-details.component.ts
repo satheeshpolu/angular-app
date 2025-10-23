@@ -1,13 +1,13 @@
 import { Component, inject, resource } from '@angular/core';
 import { Post } from '../../model/post.model';
 import { firstValueFrom } from 'rxjs';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { PostsService } from '../../services/posts.service';
 import { PostCommentsComponent } from '../post-comments/post-comments.component';
 
 @Component({
   selector: 'app-post-details.component',
-  imports: [RouterLink, PostCommentsComponent],
+  imports: [PostCommentsComponent],
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.css'
 })
