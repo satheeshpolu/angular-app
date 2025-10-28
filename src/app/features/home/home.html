@@ -1,1 +1,8 @@
 <p>home works!</p>
+<div class="card">
+   <h3>Sibling Data Sharing: {{messageToSend}}</h3>
+   <h3>Status: {{messageStatus}}</h3>
+
+   <input type="text" [(ngModel)]="messageToSend" placeholder="Enter message to send to Sibling 2" />
+   <button (click)="sendMessageToSibling2()">Send Message</button>
+</div>
