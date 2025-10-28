@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { SharedService } from '../../shared/services/shared.service';
 import { FormsModule } from '@angular/forms';
+import { AutoFocusDirective } from '../../utils/auto-focus/auto-focus.directive';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule],
+  imports: [FormsModule, AutoFocusDirective],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

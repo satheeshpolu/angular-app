@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { catchError, Observable, retry, throwError } from 'rxjs';
 import { User } from '../model/user.model';
 
@@ -9,7 +9,8 @@ import { User } from '../model/user.model';
 export class UserService {
   private readonly apiURL = 'https://jsonplaceholder.typicode.com/users';
 
-  constructor(private http: HttpClient){}
+  // constructor(private http: HttpClient){}  // Approach using constructor injection
+  http = inject(HttpClient);  // Approach using inject function
 
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.apiURL).pipe(
