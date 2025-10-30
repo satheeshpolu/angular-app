@@ -7,3 +7,6 @@
       height: 300px;
       overflow-y: auto;
 }
+.text-align-center {
+  text-align: center;
+}

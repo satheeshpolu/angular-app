@@ -4,5 +4,22 @@
    border-radius: 8px;
    border: 2px solid #c9acac;
    gap: 8px;
-   margin-bottom: 8px;
+   margin: 16px;
+}
+
+.viewport {
+   height: 500px;
+   /* width: 300px; */
+   border: 1px solid #ccc;
+}
+
+.item {
+   height: 40px;
+   display: grid;
+   align-items: center;
+   padding: 0 10px;
+   border-bottom: 1px solid #eee;
+}
+.text-align-center {
+  text-align: center;
 }

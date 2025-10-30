@@ -1,18 +1,29 @@
 @if(postsResource.isLoading()){
-<h3>Loading...</h3>
+<h3 class="text-align-center">Loading...</h3>
 } @else if(!postsResource.isLoading() && postsResource.error()){
-<h3>Error...</h3>
+<h3 class="text-align-center">Error...</h3>
 } @else if(postsResource.value()){
 <p>posts-overview.component works!</p>
-@for(post of postsResource.value(); track post.id){
-<div class="post-overview">
+<cdk-virtual-scroll-viewport itemSize="40" class="viewport">
+    <!-- <div class="post-overview">
     <h1>Title: {{ post.title }}</h1>
     <p class="post-body">Description: {{ post.body }}</p>
     <div class="post-meta">Post ID: {{ post.id }} | User ID: {{ post.userId }}</div>
     <a [routerLink]="['posts', post.id, 'comments']" class="read-more">
         Read More →
     </a>
-</div>
-}
+</div> -->
+    <div *cdkVirtualFor="let post of postsResource.value(); trackBy: trackByFn">
+        <div class="post-overview">
+            <h1>Title: {{ post.title }}</h1>
+            <p class="post-body">Description: {{ post.body }}</p>
+            <div class="post-meta">Post ID: {{ post.id }} | User ID: {{ post.userId }}</div>
+            <a [routerLink]="['posts', post.id, 'comments']" class="read-more">
+                Read More →
+            </a>
+        </div>
+    </div>
+</cdk-virtual-scroll-viewport>
+
 
 }
