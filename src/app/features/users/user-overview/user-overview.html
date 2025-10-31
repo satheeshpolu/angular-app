@@ -12,7 +12,7 @@
         <mat-card-title>{{ user.name }}</mat-card-title>
         <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
         <button mat-icon-button color="primary" aria-label="Next" class="back-button"
-            [routerLink]="['/users', user.id]">
+            [routerLink]="['/users', user.id, 'details']">
             <mat-icon>arrow_forward</mat-icon>
         </button>
     </mat-card-header>
