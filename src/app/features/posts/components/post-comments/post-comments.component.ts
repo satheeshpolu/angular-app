@@ -30,6 +30,8 @@ export class PostCommentsComponent implements OnInit {
 
   dataFromChild = signal<string>('Click on any comment to see data here.');
 
+  dummyData = signal<string>('This is dummy data from Child component.');
+  
   commentResource = resource<Comment[], void>({
     loader: async () => {
       return await firstValueFrom(this.postService.getPostComments(this.postId ? this.postId : 0));
@@ -41,10 +43,7 @@ export class PostCommentsComponent implements OnInit {
     // console.log('Data received from child component:', this.dataFromChild());
   }
 
-    // postsResource = resource<Post[], void>({
-    //     loader: async () => await firstValueFrom(this.postService.getPosts())
-    //   })
-  // });
-
-
+  callFromParent() {
+    console.log('*** Method called from Parent component');
+  }
 }

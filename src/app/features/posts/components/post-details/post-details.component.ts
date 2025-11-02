@@ -1,6 +1,6 @@
-import { Component, inject, resource } from '@angular/core';
+import { Component, inject, resource, signal, ViewChild } from '@angular/core';
 import { Post } from '../../model/post.model';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, single } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { PostsService } from '../../services/posts.service';
 import { PostCommentsComponent } from '../post-comments/post-comments.component';
@@ -15,6 +15,10 @@ export class PostDetailsComponent {
   private route = inject(ActivatedRoute);
   private postService = inject(PostsService)
 
+  // Get the child component instance
+  @ViewChild (PostCommentsComponent) commentComponent!: PostCommentsComponent;
+
+  childComponentProperty = signal<string>('DEFAULT PROPERTY Data');
   postResource = resource<Post, void>({
     loader: async () => {
       const params = await firstValueFrom(this.route.paramMap)
@@ -25,4 +29,16 @@ export class PostDetailsComponent {
       return await firstValueFrom(this.postService.getPostById(parseInt(id)))
     }
   });
+
+  callChildMethod() {
+    this.commentComponent.callFromParent();
+    console.log(this.commentComponent.dummyData());
+    this.childComponentProperty.set(this.commentComponent.dummyData());
+    alert('Called method in Child component from Parent component');
+  }
+  // ngAfterViewInit() {
+  //   this.commentComponent?.callFromParent();
+  //   // Access dataFromChild signal from the child component
+  //   // console.log('Data from child component:', this.commentComponent.callFromParent());
+  // }
 }

@@ -9,6 +9,7 @@
 
 <!-- <button mat-button color="primary" (click)="sendDataToParent.emit(comment)">Send Data To Parent</button> -->
 <div class="post-content">
+    <ng-content>Default ng-content</ng-content>
     @for(comment of commentResource.value(); track comment?.id){
 
     <!-- <h1>{{ comment.name }}</h1>
@@ -18,7 +19,6 @@
     <p class="post-body">{{ comment.body }}</p> -->
     <app-comment-card [comment]="comment" (sendDataToParent)="receiveDataFromChild($event)"></app-comment-card>
     <!-- <app-post-comments [postId]="comment.id"></app-post-comments> -->
-
-    }
+}
 </div>
 }

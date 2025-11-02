@@ -6,4 +6,14 @@
    <input type="text" [(ngModel)]="messageToSend" placeholder="Enter message to send to Sibling 2"
       [appAutoFocus]="true" />
    <button (click)="sendMessageToSibling2()">Send Message</button>
+   <hr />
+   <h2>ViewChild Example</h2>
+
+   <p #message>Hello from Angular!</p>
+
+   <ng-container>
+      <h3>Message from ViewChild: {{message.textContent}}</h3> 
+   </ng-container>
+
+   <button (click)="changeText()">Change Text</button>
 </div>

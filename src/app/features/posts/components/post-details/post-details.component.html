@@ -4,11 +4,16 @@
 <h3>Error...</h3>
 } @else if(postResource.value()){
 <div class="post-content">
-    <h1>{{ postResource.value()?.title }}</h1>
+     <button (click)="callChildMethod()">@ViewChild: Call Child Method</button> 
+     <h3>{{childComponentProperty()}}</h3>
+    <h1>{{ postResource.value()?.title }}</h1> 
     <div class="post-meta">postResource ID: {{ postResource.value()?.id }} | User ID: {{ postResource.value()?.userId }}
     </div>
     <p class="post-body">{{ postResource.value()?.body }}</p>
     <!-- <a [routerLink]="['/posts']" class="back-link">← Back to Posts {{postResource.value()?.id}}</a> -->
-    <app-post-comments [postId]="postResource.value()?.id"></app-post-comments>
+    <!--Child: Post comments-->
+    <app-post-comments [postId]="postResource.value()?.id">
+        <h3>Ng-Content: Additional data</h3>
+    </app-post-comments>
 </div>
 }
