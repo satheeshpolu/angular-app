@@ -5,6 +5,8 @@
 } @else if(postResource.value()){
 <div class="post-content">
      <button (click)="callChildMethod()">@ViewChild: Call Child Method</button> 
+        <p>Total(Pipe Eg): {{ 10.52 | currency }}</p>
+
      <h3>{{childComponentProperty()}}</h3>
     <h1>{{ postResource.value()?.title }}</h1> 
     <div class="post-meta">postResource ID: {{ postResource.value()?.id }} | User ID: {{ postResource.value()?.userId }}

@@ -4,10 +4,11 @@ import { firstValueFrom, single } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { PostsService } from '../../services/posts.service';
 import { PostCommentsComponent } from '../post-comments/post-comments.component';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-post-details.component',
-  imports: [PostCommentsComponent],
+  imports: [PostCommentsComponent, CurrencyPipe],
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.css'
 })
