@@ -1,0 +1,26 @@
+<p>contact-form works!</p>
+<hr>
+<button (click)="resetName()">Rest Name</button>
+
+<p>Value: {{ name.value }}</p>
+
+<label for="name">Name: </label>
+<input id="name" type="text" [formControl]="name" placeholder="Enter your name">
+
+<form [formGroup]="contactForm" (submit)="onFormSubmit()">
+<label for="first-name">First Name: </label>
+<input id="first-name" type="text" formControlName="firstName" placeholder="Enter your name">
+<label for="last-name">Last Name: </label>
+<input id="last-name" type="text" formControlName="lastName" placeholder="Enter your name">
+<button type="submit" [disabled]="!contactForm.valid">Submit</button>
+</form>
+
+<hr>
+<p>Form Builder Status: {{ customerFormBuilder.status }}</p>
+<form [formGroup]="customerFormBuilder">
+  <label for="email">Email: </label>
+  <input id="email" type="email" formControlName="email" placeholder="Enter your email">    
+</form>
+<hr>
+<h1>Dynamic Form Example</h1>
+<app-dynamic-form [questions]="questions$ | async" />

@@ -15,7 +15,6 @@ import { CurrencyPipe } from '@angular/common';
 export class PostDetailsComponent {
   private route = inject(ActivatedRoute);
   private postService = inject(PostsService)
-
   // Get the child component instance
   @ViewChild (PostCommentsComponent) commentComponent!: PostCommentsComponent;
 
@@ -23,6 +22,7 @@ export class PostDetailsComponent {
   postResource = resource<Post, void>({
     loader: async () => {
       const params = await firstValueFrom(this.route.paramMap)
+      console.log('Route info: ', this.route)
       const id = params.get('id')
 
       if (!id) throw new Error(`Unable to fetch the User details with ${id}`)
